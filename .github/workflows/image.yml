@@ -72,15 +72,3 @@ jobs:
         uses: wei/curl@v1
         with:
           args: -X POST https://hooks.microbadger.com/images/dragoncrafted87/alpine/pyMHnj4VpGlfIKAvUk6f0xTT1Mo=
-      -
-        name: Setup for readme sync
-        uses: actions/checkout@master
-      -
-        name: Sync Readme
-        uses: meeDamian/sync-readme@v1.0.6
-        with:
-          user: dragoncrafted87
-          pass: ${{ secrets.DOCKER_PASSWORD }}
-          slug: dragoncrafted87/alpine
-          readme: ./README.md
-          description: true
