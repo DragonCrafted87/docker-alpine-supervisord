@@ -11,9 +11,11 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.version=$VERSION \
       org.label-schema.schema-version="1.0"
 
-RUN apk add --update supervisor && rm  -rf /tmp/* /var/cache/apk/*
+COPY root/. /
 
-ADD supervisord.conf /etc/
+RUN apk add --update supervisor && \
+    apk add tzdata && \
+    rm  -rf /tmp/* /var/cache/apk/*
 
 # Set environment variables.
 ENV HOME /root
