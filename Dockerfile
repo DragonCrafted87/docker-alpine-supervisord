@@ -23,4 +23,4 @@ ENV HOME /root
 # Define working directory.
 WORKDIR /root
 
-CMD ["supervisord", "--configuration", "/etc/supervisord.conf"]
+CMD ["/docker_service_init"]
