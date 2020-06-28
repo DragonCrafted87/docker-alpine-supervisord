@@ -15,7 +15,7 @@ COPY root/. /
 
 RUN apk add --update supervisor && \
     rm  -rf /tmp/* /var/cache/apk/* && \
-    mkdir -p /etc/supervisor/conf.d $$ \
+    mkdir -p /etc/supervisor/conf.d && \
     chmod +x /docker_service_init && \
     chmod +x /scripts/*
 
