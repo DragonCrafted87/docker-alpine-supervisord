@@ -3,6 +3,5 @@
 from os import system
 from os import execvp
 
-
 system('/scripts/set_system_timezone.py')
 execvp('supervisord', ['supervisord', '--configuration', '/etc/supervisord.conf'])

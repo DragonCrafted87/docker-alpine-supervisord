@@ -4,7 +4,7 @@ ARG BUILD_DATE
 ARG VCS_REF
 ARG VERSION
 LABEL org.label-schema.build-date=$BUILD_DATE \
-      org.label-schema.name="DragonCrafted87 Base Multi Arch Alpine Docker" \
+      org.label-schema.name="DragonCrafted87 Alpine Supervisord" \
       org.label-schema.description="Alpine Image with additional controls from supervisord to enable gracefull server shudown." \
       org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.vcs-url="https://github.com/DragonCrafted87/docker-alpine-supervisord" \
@@ -15,6 +15,7 @@ COPY root/. /
 
 RUN apk add --update supervisor && \
     rm  -rf /tmp/* /var/cache/apk/* && \
+    mkdir -p /etc/supervisor/conf.d $$ \
     chmod +x /docker_service_init && \
     chmod +x /scripts/*
 
