@@ -7,10 +7,6 @@ on:
     branches: master
     tags:
       - v*
-    paths:
-      - 'Dockerfile'
-      - 'root/**'
-      - '!README.md'
 
 jobs:
   build:
