@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM dragoncrafted87/alpine:latest
 
 ARG BUILD_DATE
 ARG VCS_REF
@@ -14,8 +14,9 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
 COPY root/. /
 
 RUN apk add --update supervisor && \
-    apk add tzdata && \
-    rm  -rf /tmp/* /var/cache/apk/*
+    rm  -rf /tmp/* /var/cache/apk/* && \
+    chmod +x /docker_service_init && \
+    chmod +x /scripts/*
 
 # Set environment variables.
 ENV HOME /root
